@@ -1,11 +1,13 @@
 package pl.spring.demo.dao;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import pl.spring.demo.entity.BookEntity;
+import pl.spring.demo.entity.LibraryEntity;
 
 import java.util.List;
 
@@ -20,6 +22,13 @@ public class BookDaoImplTest {
     @Autowired
     private BookDao bookDao;
 
+//    @Before 
+//    public void addTestBook() {
+//    	LibraryEntity libraryEntity = new LibraryEntity(null, "Testowa biblioteka");
+//    	BookEntity bookTest = new BookEntity(null, "Testowa książka", libraryEntity);
+//        bookDao.save(bookTest);
+//     }
+    
     @Test
     public void testShouldFindBookById() {
         // given

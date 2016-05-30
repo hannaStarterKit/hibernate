@@ -13,6 +13,8 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
+
+import pl.spring.demo.entity.LibraryEntity;
 import pl.spring.demo.service.BookService;
 import pl.spring.demo.to.BookTo;
 import pl.spring.demo.web.utils.FileUtils;
@@ -48,9 +50,10 @@ public class BookRestServiceTest {
     public void testShouldCallBookService() throws Exception {
         // given
         final String bookTitle = "testTitle";
+        final LibraryEntity library = new LibraryEntity(null, "libraryName");
 
-        final BookTo bookTo1 = new BookTo(1L, bookTitle, "Author1");
-        final BookTo bookTo2 = new BookTo(2L, bookTitle, "Author2");
+        final BookTo bookTo1 = new BookTo(1L, bookTitle, "Author1", library);
+        final BookTo bookTo2 = new BookTo(2L, bookTitle, "Author2", library);
 
         Mockito.when(bookService.findBooksByTitle(bookTitle)).thenReturn(Arrays.asList(bookTo1, bookTo2));
 

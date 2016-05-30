@@ -28,9 +28,18 @@ public class BookEntity implements Serializable {
 	protected BookEntity() {
 	}
 
-	public BookEntity(Long id, String title) {
+	public BookEntity(Long id, String title, LibraryEntity library) {
 		this.id = id;
 		this.title = title;
+		this.library = library;
+	}
+	
+	public LibraryEntity getLibrary() {
+		return library;
+	}
+	
+	public void setLibrary(LibraryEntity library) {
+		this.library = library;
 	}
 
 	public Long getId() {
